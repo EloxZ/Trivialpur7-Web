@@ -1,0 +1,5 @@
+
+# Remove unauthorized access
+Redirect 301 /vendor http://www.example.com/404.html
+Redirect 301 /includes http://www.example.com/404.html
+Redirect 301 /siette http://www.example.com/404.html

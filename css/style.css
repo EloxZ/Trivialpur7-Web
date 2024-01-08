@@ -1,0 +1,751 @@
+/* Author: Eloy Barrionuevo Jiménez */
+
+:root {
+    --warmpink: #FF4D7A;
+    --greenpeas: #7DC45D;
+    --azure: #00ABFF;
+    --burningorange: #FD692E;
+    --cyanpastel: #8CDEDC;
+    --skyblue: #00C4FF;
+    --bluebg: #33586A;
+    --orangeweb: #fca311;
+    --platinum: #e5e5e5;
+    --ghostwhite: #f7f7ff;
+    --smokyblack: #131112;
+    --cultured: #f0f2ef;
+    --raisinblack: #28262c;
+    --grayboard: #494853;
+}
+
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    transition: background-color 2s;
+    color: #495057 !important; 
+    font-family: CandyBeans !important;
+}
+
+.body-bg {
+    background-color: #735AA6;
+}
+
+.cheeses{
+    z-index: -1;
+    transition: opacity 2s;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0px;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cheeses li {
+    border-radius: 100%;
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.2); 
+    animation: animateCheese 25s linear infinite;
+    bottom: -150px;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.form-container {
+    max-width: 800px !important;
+    margin-top: 100px;
+    color: white;
+}
+
+*:focus { 
+    outline: 0 !important;
+    box-shadow:
+      0 0 0 .0rem #fff, /* use site bg color to create whitespace for faux focus ring */
+      0 0 0 .0rem #069 !important; /* faux focus ring color */
+  }
+
+.gray-link {
+    color: whitesmoke;
+}
+
+a.gray-link:hover  {
+    color: lightgray !important;
+}
+
+#gameCrono {
+    color: white;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.player-cheeses-container {
+    background: white;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+}
+  
+#blackBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+    z-index: -30;
+}
+
+#questionPage {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    border: 2px solid black;
+    background-color: #262626;
+    color: white;
+}
+
+#questionFrame {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    float: initial;
+    position: fixed;
+    padding-bottom: 40px;
+    top: 8%;
+    left: 10%;
+    z-index: 1;
+}
+
+.accordion-heading {
+    color: rgb(135, 32, 231) !important;
+    font-size: 1.3rem !important;
+}
+
+.accordion-heading:hover {
+    text-decoration: none !important;
+    color: rgb(118, 29, 201) !important;
+}
+
+.accordion-heading:focus {
+    text-decoration: none !important;
+}
+
+#responses input {
+    margin-right: 10px;
+}
+
+#divQuestion {
+    height:100%;
+    position:fixed;
+    width:100%;
+    z-index:999;
+    font-family: FixedSysEx;
+}
+
+#question {
+    width: 100%;
+    height: 20%;
+    font-size: 1.3rem;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow-y: auto;
+}
+
+#responses {
+    width: 100%;
+    height: 60%;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-size: 1.2rem;
+}
+
+#answerQuestionButton {
+    display: block;
+    margin: auto;
+    font-size: 1.3rem;
+}
+ 
+.form-container input:focus {
+    outline: none;
+    border: 2px solid rgb(123, 29, 211);
+    box-shadow: 0 0 10px rgb(135, 32, 231);
+}
+
+.btn-pea {
+    background-color: var(--greenpeas) !important;
+    color: white !important;
+    border: 2px solid #41662f !important;
+    outline: none !important;
+}
+
+.btn-pea:hover {
+    background-color: #6eac52 !important;
+}
+
+.btn-red {
+    background-color: rgb(253, 67, 42) !important;
+    color: white !important;
+    border: 2px solid rgb(194, 53, 34)  !important;
+    outline: none !important;
+}
+
+.btn-red:hover {
+    background-color: rgb(224, 58, 37)  !important;
+}
+
+.btn-sky {
+    background-color: var(--skyblue) !important;
+    color: white !important;
+    border: 2px solid #007497 !important;
+    outline: none !important;
+}
+
+.btn-sky:hover {
+    background-color: #00a3d4 !important;
+}
+
+.btn-orange {
+    background-color: var(--orangeweb) !important;
+    color: white !important;
+    border: 2px solid #b6750e !important;
+    outline: none !important;
+}
+
+.btn-orange:hover {
+    background-color: #e09112 !important;
+}
+
+
+#divLobby, #divRoom {
+    max-width: 800px !important;
+}
+
+div.tab1, div.tab2, div.tab3 {
+    min-height: 425px !important;
+}
+
+#roomContainer {
+    padding: 0px;
+    width: 90%;
+    margin: auto;
+}
+
+.white-bg-room {
+    border: 2px solid #d1bd05;
+    background: rgba(235, 235, 235, 0.8);
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.cheeses li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.cheeses li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.cheeses li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.cheeses li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.cheeses li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.cheeses li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.cheeses li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.cheeses li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.cheeses li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.cheeses li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animateCheese {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+
+}
+
+
+.wider {
+    max-width: 450px;
+}
+
+@media (min-width: 1700px) {
+    .wider {
+        max-width: 1620px !important;
+    }
+}
+
+.glassy {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.title--nav {
+    gap: 0.5em;
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    font-family: CandyBeans;
+    font-size: 40px !important;
+    text-align: center;
+    color: #6b747e;
+    margin: auto;
+    text-shadow:
+        0 01px #2f3438,
+        01px 0 #2f3438,
+        01px 02px #2f3438,
+        02px 01px #2f3438,
+        02px 03px #2f3438,
+        03px 02px #2f3438,
+        03px 04px #2f3438,
+        04px 03px #2f3438,
+        04px 05px #2f3438,
+        05px 04px #2f3438,
+        05px 06px #2f3438,
+        06px 05px #2f3438,
+        06px 07px #2f3438;
+    
+    font-size: 1.4rem;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.title--nav p {
+    margin-bottom: 0px;
+}
+
+.title {
+    transition: 2s;
+    gap: 0.5em;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    font-weight: bold;
+    font-family: CandyBeans;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    margin: auto;
+    text-shadow:
+        0 01px lightgray,
+        01px 0 lightgray,
+        01px 02px lightgray,
+        02px 01px lightgray,
+        02px 03px lightgray,
+        03px 02px lightgray,
+        03px 04px lightgray,
+        04px 03px lightgray,
+        04px 05px lightgray,
+        05px 04px lightgray,
+        05px 06px lightgray,
+        06px 05px lightgray,
+        06px 07px lightgray;
+
+}
+
+#title {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    z-index: 100;
+}
+
+#title p {
+    margin-bottom: 0px;
+}
+
+.blue-3dshadows {
+    text-shadow:
+        0 01px #01a4d6,
+        01px 0 #01a4d6,
+        01px 02px #01a4d6,
+        02px 01px #01a4d6,
+        02px 03px #01a4d6,
+        03px 02px #01a4d6,
+        03px 04px #01a4d6,
+        04px 03px #01a4d6,
+        04px 05px #01a4d6,
+        05px 04px #01a4d6,
+        05px 06px #01a4d6,
+        06px 05px #01a4d6,
+        06px 07px #01a4d6;
+}
+
+.orange-3dshadows {
+    text-shadow:
+        0 01px #c26c3d,
+        01px 0 #c26c3d,
+        01px 02px #c26c3d,
+        02px 01px #c26c3d,
+        02px 03px #c26c3d,
+        03px 02px #c26c3d,
+        03px 04px #c26c3d,
+        04px 03px #c26c3d,
+        04px 05px #c26c3d,
+        05px 04px #c26c3d,
+        05px 06px #c26c3d,
+        06px 05px #c26c3d,
+        06px 07px #c26c3d;
+        
+
+}
+
+.red-3dshadows {
+    text-shadow:
+        0 01px #ac1524,
+        01px 0 #ac1524,
+        01px 02px #ac1524,
+        02px 01px #ac1524,
+        02px 03px #ac1524,
+        03px 02px #ac1524,
+        03px 04px #ac1524,
+        04px 03px #ac1524,
+        04px 05px #ac1524,
+        05px 04px #ac1524,
+        05px 06px #ac1524,
+        06px 05px #ac1524,
+        06px 07px #ac1524;
+}
+
+.white-bg {
+    background: white;
+    border-radius: 10px;
+}
+
+#nav {
+    font-size: 1.4rem;
+    background-color: whitesmoke;
+}
+
+#nav .navbar-toggler {
+    outline: none;
+}
+
+#nav .navbar-nav{
+    gap: 20px;
+}
+
+#nav .navbar-brand {
+    font-size: 2rem;
+}
+
+#nav .nav-item {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#nav .nav-item:hover {
+    background-color: white;
+}
+
+#nav .active {
+    color: #735AA6;
+}
+
+#nav a {
+    color: #495057;
+}
+
+
+.pc-tab > input,
+.pc-tab section > div {
+  display: none;
+}
+
+#tab1:checked ~ section .tab1,
+#tab2:checked ~ section .tab2,
+#tab3:checked ~ section .tab3 {
+  display: block;
+}
+
+#tab1:checked ~ nav .tab1,
+#tab2:checked ~ nav .tab2,
+#tab3:checked ~ nav .tab3 {
+  color: red;
+}
+
+.pc-tab {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .pc-tab ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pc-tab ul li label {
+    cursor: pointer;
+    z-index: 20;
+    float: left;
+    padding: 15px 25px;
+    border: 2px solid #735AA6;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: -2px;
+    font-size: 2rem;
+    text-align: center;
+
+
+    width: 33.333333333333333%;
+    background: rgba(235, 235, 235, 0.8);
+    
+  }
+  .pc-tab ul li label:hover {
+    background: rgba(245, 245, 245, 0.8);
+  }
+  .pc-tab ul li label:active {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .pc-tab ul li:not(:last-child) label {
+    border-right-width: 1px;
+  }
+
+  .pc-tab ul li:not(:first-child) label {
+    border-left-width: 1px;
+  }
+
+  .pc-tab section {
+    clear: both;
+    
+  }
+  .pc-tab section > div {
+    padding: 30px;
+    padding-top: 40px;
+    width: 100%;
+    border: 2px solid #735AA6;
+    border-top-width: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    line-height: 1.5em;
+    letter-spacing: 0.3px;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .pc-tab section div h2 {
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  #tab1:checked ~ nav .tab1 label, #tab2:checked ~ nav .tab2 label, #tab3:checked ~ nav .tab3 label {
+    background: rgba(255, 255, 255, 0.8);
+    color: #735AA6;
+    position: relative;
+    border-bottom-width: 0px;
+  }
+  #tab1:checked ~ nav .tab1 label:after, #tab2:checked ~ nav .tab2 label:after, #tab3:checked ~ nav .tab3 label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: white;
+    left: 0;
+  }
+
+#code {
+    width: 5em;
+    font-size: 3rem;
+    text-align: center;
+    margin: auto;
+}
+
+#labelCode {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#gameRules {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #735AA6;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.flat-button {
+    background-color: whitesmoke;
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.4rem;
+    border-radius: 10px;
+}
+
+.flat-button--green {
+    background-color: #00B593;
+    color: whitesmoke !important;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.flat-button--yellow {
+    background-color: #e9d207;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.play {
+    color: white !important;
+    background-color: #ad33ff;
+    box-shadow: 5px 5px #8827c9, 2px 2px #8827c9;
+}
+
+.play:hover {
+    color: white !important;
+    background-color: #9c30e4 !important;
+    box-shadow: 5px 5px #8827c9, 2px 2px #8827c9;
+}
+
+.flat-button--red {
+    background-color: #D01A2D;
+    color: whitesmoke !important;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.flat-button--red:hover {
+    background-color: #ac1524;
+    text-decoration: none;
+}
+
+.flat-button--yellow:hover {
+    background-color: #b4a30b;
+    text-decoration: none;
+}
+
+.flat-button--green:hover {
+    background-color: #008b72;
+    text-decoration: none;
+}
+
+.flat-button:hover {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    
+}
+
+@media (max-width: 780px) {
+    .container {
+        max-width: 90% !important;
+    }
+}
+
+@media (max-width: 569px) {
+    .pc-tab ul li label {
+        font-size: 4vw;
+    }
+}
+
+@font-face {
+    font-family: KidsMagazine;
+    src: url(fonts/KidsMagazine.ttf);
+}
+
+@font-face {
+    font-family: FixedSysEx;
+    src: url(fonts/FixedSysEx.ttf);
+}
+
+@font-face {
+    font-family: Grobold;
+    src: url(fonts/GROBOLD.ttf);
+}
+
+@font-face {
+    font-family: CandyBeans;
+    src: url(fonts/CandyBeans.otf);
+}
+
